@@ -94,7 +94,7 @@ def generate_response(message):
     response = chain.run(message=message, best_responses=best_responses)
     return response
 
-# adding skills to existing resume
+#  Updating resume
 def generate_resume(skills):
     # reading Text file 
     file_path = 'resume_bot/resume.txt'
