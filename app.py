@@ -72,7 +72,7 @@ def retrieve_info(query):
     return page_contents_array
 
 # 3. Setup llm chain and prompts
-llm = ChatOpenAI(model_name="gpt-4o",temperature=1)
+llm = ChatOpenAI(model_name="gpt-4o",temperature=0.2)
 
 
 # 4. Retreival Augmented Generation
@@ -120,7 +120,8 @@ def generate_resume(skills,pdf):
     Job Description: {skills}
     Current Resume: {resume}
     
-    Please analyze the job description and the current resume. Then, modify the resume to highlight relevant skills, experiences, and qualifications that align with the job requirements. Your goal is to increase the candidate's chances of securing an interview.
+    Please analyze the job description and the current resume. 
+    Then, modify the resume to highlight relevant skills, experiences, and qualifications that align with the job requirements. Your goal is to increase the candidate's chances of securing an interview upto 90%.
     
     Provide an updated version of the resume that:
     1. Emphasizes relevant skills and experiences
