@@ -24,7 +24,7 @@ def get_jobs(query):
     "engine": "google_jobs",
     "q": query,
     "hl": "en",
-    "api_key": st.secrets["SERPER_API_KEY"]
+    "api_key": os.getenv("SERPER_API_KEY")
     }
 
     search = GoogleSearch(params)
@@ -72,7 +72,7 @@ def retrieve_info(query):
     return page_contents_array
 
 # 3. Setup llm chain and prompts
-llm = ChatOpenAI(model_name="gpt-4o-mini",temperature=0.3,api_key=st.secrets["OPENAI_API_KEY"])
+llm = ChatOpenAI(model_name="gpt-4o-mini",temperature=0.3,api_key=os.getenv("OPENAI_API_KEY"))
 
 
 # 4. Retreival Augmented Generation
