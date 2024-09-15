@@ -104,9 +104,16 @@ def generate_response(message):
     return response
 
 #  Updating resume according to the job description
-def generate_resume(skills,resume):
+def generate_resume(skills,pdf):
     # reading Text file 
-    
+    # Process PDF and convert into text for resume
+    if pdf is not None:
+        pdf_reader = PyPDF2.PdfReader(pdf)
+        resume_text = ""
+        for page in pdf_reader.pages:
+            resume_text += page.extract_text()
+    else:
+        resume_text = "No resume provided"
     template2 = """
     You are an expert HR Manager responsible for hiring. Your task is to tailor the candidate's resume to the job description provided.
     
@@ -132,7 +139,7 @@ def generate_resume(skills,resume):
     )
 
     chain = LLMChain(llm=llm,prompt=prompt, verbose=True)
-    response = chain.run(skills=skills, resume=resume)
+    response = chain.run(skills=skills, resume=resume_text)
     resume =response
     return resume
 
@@ -162,7 +169,7 @@ def main():
     if st.button("Generate Resume"):
         if query and pdf:
             with st.spinner("Generating updated resume..."):
-                    resume = generate_resume(query,resume)
+                    resume = generate_resume(query,pdf)
                     st.subheader("Updated Resume")
                     st.text(resume)
         elif not query:
