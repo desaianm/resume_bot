@@ -104,11 +104,9 @@ def generate_response(message):
     return response
 
 #  Updating resume according to the job description
-def generate_resume(skills):
+def generate_resume(skills,resume):
     # reading Text file 
-    file_path = 'resume.txt'
-    file = open(file_path)
-    resume = file.read()
+    
     template2 = """
     You are an expert HR Manager responsible for hiring. Your task is to tailor the candidate's resume to the job description provided.
     
@@ -164,7 +162,7 @@ def main():
     if st.button("Generate Resume"):
         if query and pdf:
             with st.spinner("Generating updated resume..."):
-                    resume = generate_resume(query)
+                    resume = generate_resume(query,resume)
                     st.subheader("Updated Resume")
                     st.text(resume)
         elif not query:
