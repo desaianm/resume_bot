@@ -166,7 +166,7 @@ def main():
             with st.spinner("Generating updated resume..."):
                     resume = generate_resume(query)
                     st.subheader("Updated Resume")
-                    st.text_area("", resume, height=400)
+                    st.text(resume)
         elif not query:
             st.warning("Please enter a job description.")
         elif not pdf:
