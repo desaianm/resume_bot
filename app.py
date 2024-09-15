@@ -12,6 +12,9 @@ from langchain.chains import LLMChain
 from langchain_community.chat_models import ChatOllama
 import streamlit as st
 import PyPDF2
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 
@@ -69,7 +72,7 @@ def retrieve_info(query):
     return page_contents_array
 
 # 3. Setup llm chain and prompts
-llm = ChatOpenAI(model_name="gpt-4o-mini",temperature=0.3)
+llm = ChatOpenAI(model_name="gpt-4o",temperature=1)
 
 
 # 4. Retreival Augmented Generation
