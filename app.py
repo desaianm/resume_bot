@@ -72,7 +72,7 @@ def retrieve_info(query):
     return page_contents_array
 
 # 3. Setup llm chain and prompts
-llm = ChatOpenAI(model_name="gpt-4o",temperature=0)
+llm = ChatOpenAI(model_name="gpt-4o-mini",temperature=0.3)
 
 
 # 4. Retreival Augmented Generation
