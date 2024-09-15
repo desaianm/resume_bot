@@ -115,7 +115,7 @@ def generate_resume(skills,pdf):
     else:
         resume_text = "No resume provided"
     template2 = """
-    You are an expert HR Manager responsible for hiring. Your task is to tailor the candidate's resume to the job description provided.
+    Act as an expert HR Manager responsible for hiring. Your task is to tailor the candidate's resume to the job description provided.
     
     Job Description: {skills}
     Current Resume: {resume}
@@ -131,7 +131,7 @@ def generate_resume(skills,pdf):
     5. Don't add any new information if not in the given resume and add informationin suggestions section
     6. Make Sure to be very specific in the suggestions section
     
-    Return the updated resume and suggestions in a clear, well-structured format.
+    Return the updated resume and suggestions in a clear, well-structured format in simple text.
     """
 
     prompt = PromptTemplate(
