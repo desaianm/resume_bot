@@ -6,3 +6,4 @@ langchain-openai
 sentence-transformers
 streamlit
 PyPDF2
+faiss-cpu
