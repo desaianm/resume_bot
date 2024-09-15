@@ -1,0 +1,5 @@
+myenv
+.env
+job_scraper.py 
+jobs.csv 
+postings.numbers
